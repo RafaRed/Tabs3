@@ -1,10 +1,13 @@
 const express = require("express");
 var admin = require("firebase-admin");
 const cors = require("cors");
+const dotenv = require('dotenv');
+dotenv.config();
 const rateLimit = require("express-rate-limit");
 const { initializeApp } = require("firebase-admin/app");
 const responseTime = require("response-time");
-var serviceAccount = require("./config.json");
+console.log(process.env.FIREBASE_SERVICE_ACCOUNT_KEY)
+const serviceAccount = JSON.parse(process.env.FIREBASE_SERVICE_ACCOUNT_KEY);
 
 
 admin.initializeApp({
