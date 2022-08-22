@@ -1,7 +1,7 @@
 # TABS3
 ![TABS LOGO](https://i.imgur.com/TvY8R9q.png)
 ## Summary
-TABS3 is a platform that makes it easy to save the tabs of your favorite songs in one place, using your unstopabble domain.
+TABS3 is a platform that makes it easy to save the tabs of your favorite songs in one place, using your unstoppable domain.
 
     
 ## Link to working code in a public repo
