@@ -3,6 +3,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { injected, walletconnect, uauth, uauth2 } from "../controller/UDLogin/connectors";
 import { useWeb3React } from "@web3-react/core";
 import { Provider } from '../controller/UDLogin/getLibrary';
+import { createAccount } from "../model/Calls";
 
 
 function UDLogin() {
@@ -74,10 +75,11 @@ async function connectUnstoppable(activate:any) {
 				.then(() => {
 					uauth2.uauth.user().then((user) => {
 						localStorage.setItem("udlogin-domain", user.sub);
-						/*createUdAccount(user.sub).then(() => {
-							
-						});*/
-						window.location.href = "/categories";
+						createAccount({"username":user.sub}).then((response:any) => {
+							console.log(response)
+							window.location.href = "/categories";
+						});
+						
 						
 					});
 				})
