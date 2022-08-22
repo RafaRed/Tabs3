@@ -1,4 +1,5 @@
 export const server = "https://tabs3api.vercel.app"
+//export const server = "http://127.0.0.1:5000"
 export const create_account_path = "/create-account"
 export const add_category_path = "/add-category"
 export const add_song_path = "/add-song"
