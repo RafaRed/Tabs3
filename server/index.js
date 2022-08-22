@@ -84,7 +84,6 @@ app.post("/add-song", (req, res) => {
     var ref = db.ref("/categories/"+_categoryid+"/songs");
     var song_key = new_song.key;
     ref.update({
-        timestamp: Date.now(),
         [_song]:song_key
     })
 
