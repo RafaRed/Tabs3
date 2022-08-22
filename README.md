@@ -11,9 +11,9 @@ https://github.com/RafaRed/Tabs3
 https://tabs3.vercel.app/
 
 ## Video Demo
-[![Video Demo](http://img.youtube.com/vi/ID/0.jpg)](url)
+[![Video Demo](http://img.youtube.com/vi/nikh__uDfJ8/0.jpg)](https://www.youtube.com/watch?v=nikh__uDfJ8)
 
-URL
+https://www.youtube.com/watch?v=nikh__uDfJ8
 ## Local Installation  
 1. Download the files
 ```
