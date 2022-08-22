@@ -81,7 +81,7 @@ app.post("/add-song", (req, res) => {
         images: _imgs,
         name:_song
     });
-    var ref = db.ref("/categories/"+_categoryid);
+    var ref = db.ref("/categories/"+_categoryid+"/songs");
     var song_key = new_song.key;
     ref.update({
         timestamp: Date.now(),

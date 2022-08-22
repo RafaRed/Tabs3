@@ -5,15 +5,13 @@ import Navbar from "../components/Navbar";
 import { redirect } from "../controller/utils";
 import { getSong } from "../model/Calls";
 function Track() {
-
-	let {song_id} = useParams()
-	const [song,setSong] = useState({"name":"","images":""})
-	useEffect(()=>{
-		if(song_id !== undefined){
-			fetchSong(song_id, setSong)
+	let { song_id } = useParams();
+	const [song, setSong] = useState({ name: "", images: "" });
+	useEffect(() => {
+		if (song_id !== undefined) {
+			fetchSong(song_id, setSong);
 		}
-	},
-	[])
+	}, []);
 	return (
 		<>
 			<Navbar></Navbar>
@@ -27,17 +25,37 @@ function Track() {
 					</div>
 
 					<p className="text-2xl mt-10">{song.name}</p>
-					<div className="flex flex-col gap-5 mt-10"></div>
+					<div className="flex flex-col gap-5 mt-10">
+						<RenderImages song={song}></RenderImages>
+					</div>
 				</div>
 			</div>
 		</>
 	);
 }
 
-
-function fetchSong(song_id:string,setSong:any){
-	getSong({"song_id":song_id}).then(result=>{
-		setSong(result)
-	})
+function fetchSong(song_id: string, setSong: any) {
+	getSong({ song_id: song_id }).then((result) => {
+		setSong(result);
+	});
 }
+
+function RenderImages(song: any): JSX.Element {
+	var images: any = [];
+	
+	if (song !== undefined && song.song.images !== undefined) {
+		console.log( song.song.images)
+		for (var i = 0; i < song.song.images.length; i++) {
+			console.log(song.song.images[i]);
+			images.push(
+				<div className="mt-2" key={i}>
+					<img src={song.song.images[i].image} />
+				</div>
+			);
+		}
+	}
+
+	return images;
+}
+
 export default Track;

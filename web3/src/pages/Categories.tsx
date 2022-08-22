@@ -35,7 +35,7 @@ function createNewCategory(category:string){
 	var domain = localStorage.getItem("udlogin-domain");
 	console.log(category)
 	addCategory({"username":domain,"category":category}).then((response:any)=>{
-		window.location.href="/"+category+"/tracks"
+		window.location.href="/categories"
 		console.log(response)
 	})
 }

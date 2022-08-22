@@ -37,10 +37,11 @@ function Tracks() {
 function fetchSongs(setSongs:any, category?:string){
 	var songs:any = []
 	getSongs({"category_id":category}).then((result:any)=>{
-		for (const [key, value] of Object.entries(result)) {
-			songs.push({name:key,id:value})
+		for (const [key, value] of Object.entries(result['songs'])) {
+			songs.push({"name":key,"id":value})
 		}
 		setSongs(songs)
+		console.log(songs)
 	})
 }
 

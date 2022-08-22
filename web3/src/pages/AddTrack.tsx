@@ -81,9 +81,12 @@ function sendSong(files:any,name:string, category:string){
 	var domain = localStorage.getItem("udlogin-domain");
 	addSong({"username":domain,"categoryid":category,"song":name,"imgs":files}).then(result=>{
 		console.log(result)
+		window.location.href = "/categories"
 	})
 
 }
+
+
 
 
 export default AddTrack;
