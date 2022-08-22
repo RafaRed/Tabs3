@@ -60,7 +60,7 @@ app.post("/add-category", (req, res) => {
 	var _username = req.body.username.replace(".", "*");
     var _category = req.body.category
     var ref = db.ref("/categories/");
-    new_category = ref.push({timestamp: Date.now()})
+    new_category = ref.push({timestamp: Date.now(),name:_category})
     var category_key = new_category.key;
 	var ref = db.ref("users/"+_username+"/categories");
 	ref.update({
@@ -78,7 +78,8 @@ app.post("/add-song", (req, res) => {
 	var ref = db.ref("/song/");
 	new_song = ref.push({
         timestamp: Date.now(),
-        images: _imgs
+        images: _imgs,
+        name:_song
     });
     var ref = db.ref("/categories/"+_categoryid);
     var song_key = new_song.key;

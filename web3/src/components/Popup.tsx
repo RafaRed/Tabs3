@@ -1,6 +1,6 @@
 import React from "react";
 
-function Popup(props: { isHidden: boolean, setIsHidden: Function, action:any}) {
+function Popup(props: { isHidden: boolean, setIsHidden: Function, action:any, setField?:any}) {
 	var hiddenTag = props.isHidden ? "hidden" : ""
 	console.log("hidden tag: "+hiddenTag)
 	return (
@@ -48,6 +48,7 @@ function Popup(props: { isHidden: boolean, setIsHidden: Function, action:any}) {
 											type="text"
 											placeholder="Rock"
 											aria-label="Full name"
+											onChange={(e)=>props.setField(e.target.value.toString())}
 										/>
 									</div>
 								</form>

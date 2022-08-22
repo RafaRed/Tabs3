@@ -17,7 +17,7 @@ ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
       <Route path="/" element={<App/>} />
       <Route path="/categories" element={<Categories/>} />
       <Route path="/:category/tracks" element={<Tracks/>} />
-      <Route path="/:category/:track" element={<Track/>} />
+      <Route path="/:category/:song_id" element={<Track/>} />
       <Route path="/:category/add-track" element={<AddTrack/>} />
       </Routes>
     </Router>

@@ -1,8 +1,19 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
 import arrow from "../assets/arrow.svg";
 import Navbar from "../components/Navbar";
 import { redirect } from "../controller/utils";
+import { getSong } from "../model/Calls";
 function Track() {
+
+	let {song_id} = useParams()
+	const [song,setSong] = useState({"name":"","images":""})
+	useEffect(()=>{
+		if(song_id !== undefined){
+			fetchSong(song_id, setSong)
+		}
+	},
+	[])
 	return (
 		<>
 			<Navbar></Navbar>
@@ -12,10 +23,10 @@ function Track() {
 						className="flex items-center gap-1 select-none cursor-pointer"
 						onClick={() => redirect("tracks")}>
 						<img src={arrow} className="h-3"></img>
-						<p className="text-sm">Category Name</p>
+						<p className="text-sm">Category</p>
 					</div>
 
-					<p className="text-2xl mt-10">Track Name</p>
+					<p className="text-2xl mt-10">{song.name}</p>
 					<div className="flex flex-col gap-5 mt-10"></div>
 				</div>
 			</div>
@@ -23,4 +34,10 @@ function Track() {
 	);
 }
 
+
+function fetchSong(song_id:string,setSong:any){
+	getSong({"song_id":song_id}).then(result=>{
+		setSong(result)
+	})
+}
 export default Track;
